@@ -1,8 +1,11 @@
 var irc = require('irc');
+var google = require('./modules/google');
+
 var client = new irc.Client('irc.freenode.net', 'SirRaspy', {
     channels: ['#digislackers'],
 });
 
+google(client);
 
 client.addListener('join', function(channel, who) {
     console.log('%s has joined %s', who, channel);
