@@ -1,0 +1,14 @@
+{
+  "name": "sirraspy",
+  "version": "0.1.0",
+  "description": "An IRC Bot from outer space",
+  "main": "SirRaspy.js",
+  "dependencies": {
+    "irc": "^0.3.12"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theilgaard/SirRaspy.git"
+  }
+}
