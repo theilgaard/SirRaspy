@@ -4,7 +4,9 @@
   "description": "An IRC Bot from outer space",
   "main": "SirRaspy.js",
   "dependencies": {
-    "irc": "^0.3.12"
+    "irc": "^0.3.12",
+    "config": "^1.15.0",
+    "properties": "^1.2.1"
   },
   "devDependencies": {},
   "repository": {

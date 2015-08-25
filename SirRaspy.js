@@ -1,9 +1,13 @@
 var irc = require('irc');
+var config = require('config')
 var google = require('./modules/google');
 
-var client = new irc.Client('irc.freenode.net', 'SirRaspy', {
-    channels: ['#digislackers'],
-});
+var ircConfig = config.get('ircConfig');
+
+var client = new irc.Client(config.ircConfig.server, 
+                            config.ircConfig.botname, 
+                            { channels: [ config.ircConfig.channel ] }
+);
 
 google(client);
 
