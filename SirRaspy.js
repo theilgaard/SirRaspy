@@ -1,14 +1,15 @@
 var irc = require('irc');
-var config = require('config')
+var config = require('config');
 var google = require('./modules/google');
 
 var ircConfig = config.get('ircConfig');
 
-var client = new irc.Client(config.ircConfig.server, 
-                            config.ircConfig.botname, 
+var client = new irc.Client(config.ircConfig.server,
+                            config.ircConfig.botname,
                             { channels: [ config.ircConfig.channel ] }
 );
 
+// bootstrap google module and inject bot client
 google(client);
 
 client.addListener('join', function(channel, who) {

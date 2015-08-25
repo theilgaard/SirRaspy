@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "An IRC Bot from outer space",
   "main": "SirRaspy.js",
+  "licence": "MIT",
   "dependencies": {
     "irc": "^0.3.12",
     "config": "^1.15.0",
