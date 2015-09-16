@@ -1,6 +1,7 @@
 var irc = require('irc');
 var config = require('config');
 var google = require('./modules/google');
+var ccontrol = require('./modules/channel-control.js');
 
 var ircConfig = config.get('ircConfig');
 
@@ -11,6 +12,7 @@ var client = new irc.Client(config.ircConfig.server,
 
 // bootstrap google module and inject bot client
 google(client);
+ccontrol(client);
 
 client.addListener('join', function(channel, who) {
     console.log('%s has joined %s', who, channel);
@@ -34,9 +36,6 @@ client.addListener('message', function (from, to, message) {
             setTimeout(function () { client.say(to, "\u0001ACTION dances: :D/-<\u0001")  }, 3000);
             setTimeout(function () { client.say(to, "\u0001ACTION dances: :D|-<\u0001")  }, 4000);
         }
-	if ( message.match(/can haz op\?/) ){
-	    client.send('MODE', '#digislackers', '+o', from);
-	}
     }
     else {
         // private message
