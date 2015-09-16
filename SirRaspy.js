@@ -11,9 +11,11 @@ var client = new irc.Client(config.ircConfig.server,
   }
 );
 
+var ChannelController = new ccontrol.ChannelController(client);
+
 // bootstrap google module and inject bot client
 google(client);
-ccontrol(client);
+
 
 client.addListener('join', function(channel, who) {
   console.log('%s has joined %s', who, channel);
