@@ -1,9 +1,19 @@
 (function() {
+  var commands = [
+    ["can haz op?", 'client.send("MODE", to, "+o", from)', 'Get op on channel'],
+    ["halp", 'ccontrol_printHelp(client, to, commands)', 'Print this help message']
+  ];
 
-  module.exports = ChannelController;
-  
-  var ChannelController = function(client) {
-    var commands = self.commands;
+  var ccontrol_printHelp = function(client, to, commands) {
+    client.say(to, '[+] Channel control v1.0');
+    for (var i = commands.length - 1; i >= 0; i--) {
+      client.say(to, commands[i][0] + " : " + commands[i][2]);
+    };
+  }
+
+  module.exports = function(client) {
+    var self = this;
+
     keyphrases = [
       ["Does the bear shit in the woods?", "yes"]
     ];
@@ -19,16 +29,4 @@
       }
     });
   };
-
-  ChannelController.prototype.commands = [
-    ["can haz op?", 'client.send("MODE", to, "+o", from)', 'Get op on channel']
-    ["halp", 'ccontrol_printHelp(to, commands)', 'Print this help message']
-  ];
-
-  ChannelController.prototype.ccontrol_printHelp = function(to, commands) {
-    client.say(to, '[+] Channel control v1.0');
-    for (var i = commands.length - 1; i >= 0; i--) {
-      client.say(to, commands[i][0] + " : " + commands[i][2]);
-    };
-  }
 })();
