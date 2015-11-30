@@ -8,3 +8,7 @@ Installation:
 
 * npm install
 * ./start_SirRaspy.sh
+
+## Configuration
+
+Create your own local config file 'local.properties' which overrides the default.properties. The file has been added to .gitignore. 
