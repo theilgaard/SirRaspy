@@ -1,6 +1,7 @@
 var irc = require('irc');
 var config = require('config');
 var google = require('./modules/google');
+var ip = require('./modules/ip');
 var ccontrol = require('./modules/channel-control.js');
 
 var ircConfig = config.get('ircConfig');
@@ -15,6 +16,7 @@ var ChannelController = new ccontrol.ChannelController(client);
 
 // bootstrap google module and inject bot client
 google(client);
+ip(client);
 
 
 client.addListener('join', function(channel, who) {
